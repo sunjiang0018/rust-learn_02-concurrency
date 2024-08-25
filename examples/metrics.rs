@@ -10,7 +10,7 @@ const M: usize = 4;
 fn main() -> Result<()> {
     let metrics = Metrics::new();
 
-    println!("{:?}", metrics.snapshot());
+    println!("{}", metrics);
 
     // start N workers and M requesters
 
