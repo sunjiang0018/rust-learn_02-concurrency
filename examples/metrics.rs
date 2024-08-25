@@ -24,7 +24,7 @@ fn main() -> Result<()> {
 
     loop {
         thread::sleep(Duration::from_secs(1));
-        println!("{:?}", metrics.snapshot());
+        println!("{}", metrics);
     }
 }
 
@@ -33,7 +33,7 @@ fn task_worker(idx: usize, metrics: Metrics) -> Result<()> {
         loop {
             let mut rng = rand::thread_rng();
             thread::sleep(Duration::from_millis(rng.gen_range(100..5000)));
-            metrics.inc(format!("req.pages.{}", idx))?;
+            metrics.inc(format!("call.thread.wroker.{}", idx))?;
         }
         #[allow(unreachable_code)]
         anyhow::Ok(())
